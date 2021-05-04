@@ -1,0 +1,26 @@
+extends layout
+block content
+  //-h1= title
+  -var serverinfo=results
+  -var centers=results.centers
+  div
+  //-h3= Object.values(serverinfo)[1]+"@"+Object.values(serverinfo)[0]
+  table.table.table-hover
+    thead
+      tr 
+        th CENTER
+        th ADDRESS
+        th PINCODE
+        th AVAILABILITY
+    tbody
+      tr.table-header
+      if centers.length 
+      each center in centers
+        tr
+          td= Object.values(center)[1]
+          td= Object.values(center)[2]
+          td= Object.values(center)[6]
+          td= Object.values(center)[12][0].date + "[" + Object.values(center)[12][0].available_capacity + "]"
+      else 
+        tr
+          td(colspan="3") All licenses are available

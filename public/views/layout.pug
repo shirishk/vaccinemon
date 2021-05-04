@@ -1,0 +1,23 @@
+//- layout.pug
+doctype html
+html
+  head
+  title= title
+  link(rel='stylesheet', href='/stylesheets/style.css')
+  //- a(class='a-button a-button--primary' href='//google.com') Google
+  div.item_center
+    a(href="/pune")
+      img(src="/images/VM.jpg", alt="VM_icon", align = "center")
+      h2= title
+  //-div.item_right
+    a(href="/it")
+      img(src="/images/LM_icon.png", alt="LM_icon", align = "right")
+      h2= "ITALY"      
+  //-script.
+    function loader(a) {
+      document.images[a.id].src = "/images/status/loading.gif"
+    }  
+  body
+    block header
+    block content
+    block footer

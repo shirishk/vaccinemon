@@ -1,0 +1,19 @@
+{
+  "name": "vaccinemon",
+  "version": "1.0.0",
+  "description": "Monitor Vaccine availability",
+  "main": "app.js",
+  "scripts": {
+    "test": "test",
+    "start": "node app.js"
+  },
+  "author": "Shirish Kawatkar",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7",
+    "pug": "^3.0.2",
+    "request": "^2.88.2",
+    "serve-favicon": "^2.5.0"
+  }
+}
