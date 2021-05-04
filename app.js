@@ -6,7 +6,7 @@ var app = express();
 var favicon = require('serve-favicon');
 var path = require('path');
 
-app.set('port', 4000);
+app.set('port', 3000);
 app.set('view engine', 'pug')
 app.set("views", path.join(__dirname, 'public', 'views'));
 
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
 
-app.listen(4000, function () {
+app.listen(3000, function () {
     console.log('server running on port '+ app.get('port'));
 });
 
@@ -32,7 +32,7 @@ app.get('/pune', function(req, res) {
     //    }
     request.get({ url: "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=363&date='05-05-2021'" },      function(error, response, body) {
         if (!error && response.statusCode == 200) {
-            console.log(JSON.parse(body))
+            // console.log(JSON.parse(body))
             res.render("info", { title: "Pune", results : JSON.parse(body)})
             // res.json(body);
         }
