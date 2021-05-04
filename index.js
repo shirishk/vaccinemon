@@ -6,7 +6,7 @@ var app = express();
 var favicon = require('serve-favicon');
 var path = require('path');
 
-app.set('port', 3000);
+app.set('port', process.env.PORT || 3000);
 app.set('view engine', 'pug')
 app.set("views", path.join(__dirname, 'public', 'views'));
 
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
     console.log('server running on port '+ app.get('port'));
 });
 
