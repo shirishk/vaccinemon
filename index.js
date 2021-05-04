@@ -6,7 +6,7 @@ var app = express();
 var favicon = require('serve-favicon');
 var path = require('path');
 
-// app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3000);
 app.set('view engine', 'pug')
 app.set("views", path.join(__dirname, 'public', 'views'));
 
