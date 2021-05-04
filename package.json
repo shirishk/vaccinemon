@@ -2,18 +2,26 @@
   "name": "vaccinemon",
   "version": "1.0.0",
   "description": "Monitor Vaccine availability",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "test": "test",
-    "start": "npm install && node app.js"
+    "start": "node index.js"
   },
   "author": "Shirish Kawatkar",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "express": "^4.17.1",
     "path": "^0.12.7",
     "pug": "^3.0.2",
     "request": "^2.88.2",
     "serve-favicon": "^2.5.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shirishk/vaccinemon.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ]
 }
