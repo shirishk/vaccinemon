@@ -7,7 +7,8 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "nodemon node index.js"
+    "start": "node index.js",
+    "nodemon": "nodemon node index.js"
   },
   "author": "Shirish Kawatkar",
   "license": "MIT",
