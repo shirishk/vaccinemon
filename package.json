@@ -7,13 +7,14 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon node index.js"
   },
   "author": "Shirish Kawatkar",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "moment": "^2.29.1",
     "path": "^0.12.7",
     "pug": "^3.0.2",
     "request": "^2.88.2",
@@ -27,5 +28,8 @@
     "node",
     "heroku",
     "express"
-  ]
+  ],
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }

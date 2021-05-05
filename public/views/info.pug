@@ -3,9 +3,17 @@ block content
   //-h1= title
   -var serverinfo=results
   -var centers=results.centers
-  div
-  //-h3= Object.values(serverinfo)[1]+"@"+Object.values(serverinfo)[0]
-  table.table.table-hover
+  -var district_id=district_id
+  -var dates=ten_days
+
+  .navbar
+    each date in dates
+      a(href= date) 
+        h4= date
+    a(href= "https://www.linkedin.com/in/shirishkawatkar/")
+      //- img(src="/images/Linkedin.png", alt="Linkedin", align = "center") 
+      h4.blink_me= "Created by: Shirish Kawatkar"  
+  table    
     thead
       tr 
         th CENTER
@@ -13,7 +21,7 @@ block content
         th PINCODE
         th AVAILABILITY
     tbody
-      tr.table-header
+      tr
       if centers.length 
       each center in centers
         tr

@@ -23,10 +23,12 @@ body {
   
   table {
     border: 2px solid #2a2c4f;
+    position: absolute;
     border-collapse: collapse;
+    top: 30%;
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: 99%;
     table-layout: fixed;
   }
   
@@ -139,13 +141,13 @@ body {
     margin-top: 10px;
     float:right;
   }
-  .licensemon{
+  .vcaccinemon{
     position: absolute;
-    top: 25%; 
+    /* top: 0%;  */
     right: 50%;
     transform: translate(50%,-50%);
     font-family: verdana;
-    font-size: 7em;
+    font-size: 5em;
     font-weight: 700;
     color: #2a2c4f;
     text-shadow: 1px 1px 1px #028DAC,
@@ -168,3 +170,64 @@ body {
   link {
     font-size: 100px;
   }
+
+   
+  .navbar {
+    position: absolute;
+    border-collapse: collapse;
+    top: 20%;
+    width: 100%;
+    background-color: white;
+    overflow: auto;
+  }
+  
+  .navbar a {
+    float: left;
+    padding: 8px 10px 0px 10px;
+    color: #028DAC;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  .navbar a:hover {
+    background-color: #919191;
+  }
+  
+  .active {
+    background-color: white;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .navbar a {
+      float: none;
+      display: block;
+    }
+  }
+
+.social-grid {
+  width: 80%;
+  height: 300px;
+  background: grey;
+  //FLEX!
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
+.social-item {
+  width: 26%; //more than 1/4
+  height: 130px;
+  background: green;
+}
+
+.blink_me {
+  animation: blinker 3s linear infinite;
+  color: #2a2c4f;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}

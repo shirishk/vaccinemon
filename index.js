@@ -5,6 +5,9 @@ var request = require('request');
 var app = express();
 var favicon = require('serve-favicon');
 var path = require('path');
+var moment = require('moment');
+
+const id = require('./id.json')
 
 app.set('port', process.env.PORT || 3000);
 app.set('view engine', 'pug')
@@ -19,22 +22,30 @@ app.listen(process.env.PORT || 3000, function () {
     console.log('server running on port '+ app.get('port'));
 });
 
+const ten_days = () => {const days = []; const dateStart = moment(); const dateEnd = moment().add(10, 'days');
+  while (dateEnd.diff(dateStart, 'days') >= 0) {
+    days.push(dateStart.format('DD-MM-YYYY'));
+    dateStart.add(1, 'days');
+  }
+  return days
+ }
+
 // Route method 'get' 
-app.get('/', function (req, res, next){
-    res.render("frame", { title: "VaccineMON"})
+app.get('/', function (req, res){
+  var today = new Date().toJSON().slice(0,10).split('-').reverse().join('-')
+  res.render("home", { title: "VaccineMON", district: id, today: today })
 })
 
-app.get('/pune', function(req, res) {
-    //    if (!req.params.id) {
-    //        res.status(500);
-    //        res.send({"Error": "Looks like you are not senging the product id to get the product details."});
-    //        console.log("Looks like you are not senging the product id to get the product detsails.");
-    //    }
-    request.get({ url: "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=363&date='05-05-2021'" },      function(error, response, body) {
+app.get('/:id/:date', function(req, res) {
+    var district_id = req.params.id
+    var date = req.params.date
+    var state = id.find(item => item.id === Number(req.params.id)).state
+    request.get({ url: "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=" + district_id + "&date=" + date }, function(error, response, body) {
         if (!error && response.statusCode == 200) {
-            // console.log(JSON.parse(body))
-            res.render("info", { title: "Pune", results : JSON.parse(body)})
+            // console.log(ten_days())
+            res.render("info", { "district_id": district_id, "title": state, "results" : JSON.parse(body), "ten_days": ten_days()})
             // res.json(body);
         }
     });
 });
+
