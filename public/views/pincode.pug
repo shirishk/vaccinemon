@@ -1,0 +1,35 @@
+extends layout
+block content
+  //-h1= title
+  -var serverinfo=results
+  -var centers=results.centers
+  -var dates=ten_days
+  -var title=title
+
+  .navbar
+    each date in dates
+      a(href= "/pincode/"+title+"/"+date) 
+        h4= date
+    a(href= "https://www.linkedin.com/in/shirishkawatkar/")
+      h4.blink_me= "Created by: Shirish Kawatkar" 
+  table    
+    thead
+      tr 
+        th CENTER ADDRESS
+        th DETAILS
+    tbody
+      tr
+      if centers.length 
+        each center in centers
+          tr
+            td= Object.values(center)[1] 
+              br
+              | #{Object.values(center)[2]}
+            td
+              ul
+              if Object.values(center)[12].length
+              each session in Object.values(center)[12]
+                li= "Date: "+session.date+" Min_Age: "+session.min_age_limit+" Availability: ["+session.available_capacity+"]"
+      else 
+        tr
+          td(colspan="2") No Vaccines Available :(

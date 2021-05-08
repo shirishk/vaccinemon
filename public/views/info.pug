@@ -1,9 +1,6 @@
 extends layout
 block content
-  //-h1= title
-  -var serverinfo=results
   -var centers=results.centers
-  -var district_id=district_id
   -var dates=ten_days
 
   .navbar
@@ -11,7 +8,6 @@ block content
       a(href= date) 
         h4= date
     a(href= "https://www.linkedin.com/in/shirishkawatkar/")
-      //- img(src="/images/Linkedin.png", alt="Linkedin", align = "center") 
       h4.blink_me= "Created by: Shirish Kawatkar"  
   table    
     thead
@@ -31,4 +27,4 @@ block content
           td= Object.values(center)[12][0].date + "[" + Object.values(center)[12][0].available_capacity + "]"
       else 
         tr
-          td(colspan="3") No information available :(
+          td(colspan="4") No information available :(

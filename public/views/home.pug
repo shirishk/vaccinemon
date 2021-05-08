@@ -1,18 +1,24 @@
 extends layout
 block content
-  -var district=district
-  -var today=today    
+  - var district=district
+  - var today=today
+
+  form.searchBox(action="/" method="POST")
+    input.searchInput(type='text' name='pincode' placeholder='Enter Pincode')    
+    button.searchButton(type="submit")
+      | Search
+
   div  
     table
       thead
       tr
-        - for ( i = 0; i < Object.keys(district).length/10; i++ )
-            tr
-              - for( x= 0 ; x < 10 ; x++ )
-                  - var index = (i * 10) + x;
-                  if Object.values(district)[index]
-                    - var district_id = Object.values(district)[index].id
-                    - var district_name = Object.values(district)[index].state
-                    - var url = district_id + "/" + today
-                    td
-                        a(href=url) #{district_name}
+      - for ( i = 0; i < Object.keys(district).length/10; i++ )
+        tr
+          - for( x= 0 ; x < 10 ; x++ )
+            - var index = (i * 10) + x;
+            if Object.values(district)[index]
+              - var district_id = Object.values(district)[index].id
+              - var district_name = Object.values(district)[index].state
+              - var url = district_id + "/" + today
+              td
+                a(href=url) #{district_name}
