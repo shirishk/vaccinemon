@@ -12,10 +12,10 @@ block content
     table
       thead
       tr
-      - for ( i = 0; i < Object.keys(district).length/10; i++ )
+      - for ( i = 0; i < Object.keys(district).length/5; i++ )
         tr
-          - for( x= 0 ; x < 10 ; x++ )
-            - var index = (i * 10) + x;
+          - for( x= 0 ; x < 5 ; x++ )
+            - var index = (i * 5) + x;
             if Object.values(district)[index]
               - var district_id = Object.values(district)[index].id
               - var district_name = Object.values(district)[index].state
